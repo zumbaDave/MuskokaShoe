@@ -5,6 +5,7 @@ import Link from "next/link";
 
 export default function Cancel() {
   return (
+    <>
     <section className="w-full min-h-[80vh] flex items-center justify-center">
       <Card className="w-[350px]">
         <div className="p-6">
@@ -26,5 +27,6 @@ export default function Cancel() {
         </div>
       </Card>
     </section>
+    </>
   );
 }
