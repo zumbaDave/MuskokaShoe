@@ -4,7 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 
-const DeleteRoute = ({params}: {params: {id: string}}) => {
+const DeleteRoute = async ({params}: {params: Promise<{id: string}>}) => {
+    const { id } = await params;
+
     return (
         <div className="h-[80vh] w-full flex items-center justify-center">
             <Card className="max-w-xl">
@@ -20,7 +22,7 @@ const DeleteRoute = ({params}: {params: {id: string}}) => {
                     </Button>
                     
                     <form action={deleteProduct}>
-                        <input type="hidden" name="productId" value={params.id} />
+                        <input type="hidden" name="productId" value={id} />
                         <SubmitButton variant="destructive" text="Delete Product" />
                     </form>
                 </CardFooter>
