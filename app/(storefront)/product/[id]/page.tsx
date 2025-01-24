@@ -27,7 +27,12 @@ async function getData(productId: string) {
     return data;
 }
 
-const ProductIdRoute = async ({params}: {params: {id: string}}) => {
+// eslint-disable-next-line no-unused-vars
+const ProductIdRoute = async ({
+    params,
+  }: {
+    params: { id: string };
+  })  => {
     const data = await getData(params.id);
     const addProductToShoppingCart = addItem.bind(null, data.id);
 
