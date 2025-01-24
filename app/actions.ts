@@ -1,7 +1,7 @@
 "use server"
 
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { redirect, RedirectType } from "next/navigation";
+import { redirect } from "next/navigation";
 import { parseWithZod } from '@conform-to/zod';
 import { bannerSchema, productSchema } from "./lib/zodSchema";
 import { prisma } from "./lib/db";
@@ -152,7 +152,7 @@ export async function addItem(productId: string) {
         return redirect('/');
     }
 
-    let cart: Cart | null = await redis.get(`cart-${user.id}`);
+    const cart: Cart | null = await redis.get(`cart-${user.id}`);
 
     const selectedProduct = await prisma.product.findUnique({
         select: {
@@ -230,7 +230,7 @@ export async function deleteItem(formData: FormData) {
 
     const productId = formData.get('productId');
 
-    let cart: Cart | null = await redis.get(`cart-${user.id}`);
+    const cart: Cart | null = await redis.get(`cart-${user.id}`);
     if(cart && cart.items) {
         const updateCart: Cart = {
             userId: user.id,
@@ -251,7 +251,7 @@ export async function checkOut() {
         return redirect('/');
     }
 
-    let cart: Cart | null = await redis.get(`cart-${user.id}`);
+    const cart: Cart | null = await redis.get(`cart-${user.id}`);
 
     if(cart && cart.items) {
         const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = cart.items.map((item) => (

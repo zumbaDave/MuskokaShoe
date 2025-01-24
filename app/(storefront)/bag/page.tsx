@@ -34,10 +34,10 @@ const BagRoute = async () => {
                     </div>
 
                     <h2 className="mt-6 text-xl font-semibold">
-                        You don't have any products in your Bag
+                        You don&apos;t have any products in your Bag
                     </h2>
                     <p className="mb-8 mt-2 text-center text-sm leading-6 text-muted-foreground max-w-sm mx-auto">
-                        You currently don't have any products in your shopping bag.  Please add some so that you can see them right here.
+                        You currently don&apos;t have any products in your shopping bag.  Please add some so that you can see them right here.
                     </p>
 
                     <Button asChild>

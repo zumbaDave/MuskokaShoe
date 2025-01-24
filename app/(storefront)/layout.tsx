@@ -5,7 +5,7 @@ import { Footer } from "../components/storefront/Footer";
 const StoreFrontLayout = ({
     children,
   }: Readonly<{
-    children: React.ReactNode;
+    children: ReactNode;
   }>) => {
     return (
         <>
