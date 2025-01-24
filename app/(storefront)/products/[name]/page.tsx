@@ -85,8 +85,10 @@ async function getData(productCategory: string) {
     }
 }
 
-const CategoriesPage = async ({params}: {params: {name: string}}) => {
-    const {data, title} = await getData(params.name);
+// const CategoriesPage = async ({params}: {params: {name: string}}) => {
+const CategoriesPage = async ({params}: {params: Promise<{ name: string }>}) => {
+    const { name } = await params;
+    const {data, title} = await getData(name);
 
     return (
         <section>
