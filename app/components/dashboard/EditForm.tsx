@@ -1,4 +1,5 @@
 "use client"
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { editProduct } from "@/app/actions"
 import { UploadDropzone } from "@/app/lib/uploadthing"

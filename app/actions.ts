@@ -1,4 +1,5 @@
 "use server"
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
