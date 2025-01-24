@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { XCircle } from "lucide-react";
