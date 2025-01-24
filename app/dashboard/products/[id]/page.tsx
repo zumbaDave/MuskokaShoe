@@ -17,9 +17,9 @@ const getData = async (productId: string) => {
 }
 
 // id: string is because we named the folder this file is in [id]
-const EditRoute = async ({params} : {params: {id: string}}) => {
-
-    const data = await getData(params.id);
+const EditRoute = async ({params} : {params: Promise<{id: string}>}) => {
+    const { id } = await params;
+    const data = await getData(id);
 
     return (
         <EditForm data={data} />
