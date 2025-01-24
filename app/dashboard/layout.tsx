@@ -7,8 +7,10 @@ import { CircleUser, MenuIcon } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import { redirect } from "next/navigation"
+import { unstable_noStore as noStore } from "next/cache"
 
 const DashboardLayout = async ({children}: {children: ReactNode}) => {
+  noStore();
   const {getUser} = getKindeServerSession();
   const user = await getUser();
 

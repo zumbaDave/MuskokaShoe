@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { MoreHorizontal, PlusCircle } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { unstable_noStore as noStore } from "next/cache"
 
 const getData = async () => {
     const data = await prisma.product.findMany({
@@ -18,6 +19,7 @@ const getData = async () => {
 }
 
 const ProductsPage = async () => {
+    noStore();
     const data = await getData();
 
     return (
